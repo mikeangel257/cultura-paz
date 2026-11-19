@@ -1,0 +1,656 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Cierre | Código Humano - CECyTE 24</title>
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #fffaf6;
+    color: #41454a;
+    line-height: 1.7;
+    transition: background-color 0.4s, color 0.4s;
+}
+
+/* ENCABEZADO */
+
+header {
+    background-color: #f8d5c2;
+    padding: 25px 35px;
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    transition: 0.4s;
+}
+
+.logo {
+    width: 125px;
+    height: 125px;
+    flex-shrink: 0;
+    border: 2px solid #c9947d;
+    border-radius: 30px;
+    background-color: #fff4eb;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    padding: 5px;
+}
+
+.logo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 25px;
+}
+
+.encabezado {
+    flex: 1;
+    text-align: center;
+}
+
+header h1 {
+    color: #70544b;
+    font-size: 34px;
+    margin-bottom: 8px;
+}
+
+header p {
+    color: #70544b;
+    font-size: 17px;
+}
+
+/* MENÚ DE NAVEGACIÓN */
+
+nav {
+    background-color: #bde7d4;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+nav a {
+    text-decoration: none;
+    color: #38594e;
+    padding: 14px 24px;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+nav a:hover,
+nav a.activo {
+    background-color: #98d5ba;
+    border-radius: 25px;
+}
+
+/* BOTÓN DE MODO OSCURO */
+
+.contenedor-tema {
+    display: flex;
+    justify-content: flex-end;
+    max-width: 1100px;
+    margin: 15px auto 0;
+    padding: 0 20px;
+}
+
+.boton-tema {
+    background-color: #7966a0;
+    color: white;
+    border: none;
+    border-radius: 30px;
+    padding: 13px 22px;
+    cursor: pointer;
+    font-size: 15px;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.boton-tema:hover {
+    background-color: #5c4a80;
+    transform: scale(1.04);
+}
+
+/* CONTENIDO PRINCIPAL */
+
+main {
+    max-width: 1100px;
+    margin: auto;
+    padding: 20px;
+}
+
+section {
+    background-color: white;
+    padding: 30px;
+    margin: 25px 0;
+    border: 2px solid #f4dfd5;
+    border-radius: 25px;
+    box-shadow: 0 3px 10px #0000000b;
+    transition: 0.4s;
+}
+
+h2 {
+    color: #87635b;
+    margin-bottom: 18px;
+}
+
+h3 {
+    color: #7966a0;
+    margin: 20px 0 10px;
+}
+
+p {
+    margin-bottom: 12px;
+}
+
+ul {
+    margin: 12px 0 18px 25px;
+}
+
+li {
+    margin-bottom: 8px;
+}
+
+/* COMPROMISOS */
+
+.compromisos {
+    background-color: #fff0df;
+    padding: 20px;
+    border-radius: 25px;
+    transition: 0.4s;
+}
+
+.solucion {
+    background-color: #e3f4e9;
+    padding: 18px;
+    margin: 15px 0;
+    border-radius: 25px;
+    transition: 0.4s;
+}
+
+/* IMÁGENES */
+
+.imagen-espacio {
+    width: 100%;
+    background-color: #fdf1e9;
+    border: 2px solid #d5ac9d;
+    border-radius: 35px;
+    margin: 25px 0;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    gap: 8px;
+    overflow: hidden;
+    transition: 0.4s;
+}
+
+.imagen-espacio.azul {
+    background-color: #eaf4fb;
+    border-color: #accfe6;
+}
+
+.imagen-espacio img {
+    display: block;
+    width: 100%;
+    max-width: 700px;
+    height: auto;
+    max-height: 450px;
+    object-fit: contain;
+    border-radius: 35px;
+}
+
+/* FORMULARIO */
+
+textarea {
+    width: 100%;
+    min-height: 110px;
+    padding: 13px;
+    margin: 12px 0;
+    border: 1px solid #c8b7d8;
+    border-radius: 25px;
+    font-family: Arial, sans-serif;
+    font-size: 15px;
+    resize: vertical;
+    background-color: white;
+}
+
+.resultado {
+    background-color: #e5f5ec;
+    padding: 18px;
+    margin-top: 15px;
+    border-radius: 25px;
+    display: none;
+    overflow-wrap: anywhere;
+}
+
+/* BOTONES */
+
+button,
+.boton-enlace {
+    display: inline-block;
+    background-color: #b9e4d0;
+    color: #35564a;
+    border: none;
+    text-decoration: none;
+    border-radius: 25px;
+    padding: 13px 22px;
+    font-size: 15px;
+    font-weight: bold;
+    cursor: pointer;
+    margin: 10px 5px 10px 0;
+    transition: 0.3s;
+}
+
+button:hover,
+.boton-enlace:hover {
+    background-color: #95d3b6;
+    transform: translateY(-2px);
+}
+
+.boton-tema {
+    background-color: #7966a0;
+    color: white;
+}
+
+.boton-tema:hover {
+    background-color: #5c4a80;
+}
+
+/* PIE DE PÁGINA */
+
+footer {
+    background-color: #f8d5c2;
+    color: #70544b;
+    text-align: center;
+    padding: 30px;
+    margin-top: 30px;
+    transition: 0.4s;
+}
+
+/* MODO OSCURO */
+
+body.modo-oscuro {
+    background-color: #171923;
+    color: #e5e7eb;
+}
+
+body.modo-oscuro header,
+body.modo-oscuro footer {
+    background-color: #292536;
+    color: #f3e9fa;
+}
+
+body.modo-oscuro header h1,
+body.modo-oscuro header p {
+    color: #f3e9fa;
+}
+
+body.modo-oscuro nav {
+    background-color: #263d39;
+}
+
+body.modo-oscuro nav a {
+    color: #e5fff3;
+}
+
+body.modo-oscuro nav a:hover,
+body.modo-oscuro nav a.activo {
+    background-color: #3e6257;
+}
+
+body.modo-oscuro section {
+    background-color: #252936;
+    border-color: #46475b;
+}
+
+body.modo-oscuro h2 {
+    color: #ffcfb5;
+}
+
+body.modo-oscuro h3 {
+    color: #d2baff;
+}
+
+body.modo-oscuro .compromisos {
+    background-color: #493a32;
+    color: #fff1e6;
+}
+
+body.modo-oscuro .solucion {
+    background-color: #29453d;
+    color: #e2fff2;
+}
+
+body.modo-oscuro .imagen-espacio,
+body.modo-oscuro .imagen-espacio.azul {
+    background-color: #303443;
+    border-color: #62677a;
+}
+
+body.modo-oscuro .logo {
+    background-color: #393342;
+    border-color: #8d7488;
+}
+
+body.modo-oscuro textarea {
+    background-color: #222633;
+    color: white;
+    border-color: #77718d;
+}
+
+body.modo-oscuro textarea::placeholder {
+    color: #bfc1ce;
+}
+
+body.modo-oscuro .resultado {
+    background-color: #202e2c;
+    color: #e6fff3;
+}
+
+body.modo-oscuro button,
+body.modo-oscuro .boton-enlace {
+    background-color: #66558c;
+    color: white;
+}
+
+body.modo-oscuro button:hover,
+body.modo-oscuro .boton-enlace:hover {
+    background-color: #8270ad;
+}
+
+body.modo-oscuro .boton-tema {
+    background-color: #b9e4d0;
+    color: #35564a;
+}
+
+body.modo-oscuro .boton-tema:hover {
+    background-color: #95d3b6;
+}
+
+/* DISEÑO PARA CELULARES */
+
+@media (max-width: 600px) {
+    header {
+        flex-direction: column;
+        padding: 20px;
+        gap: 15px;
+    }
+
+    header h1 {
+        font-size: 26px;
+    }
+
+    nav a {
+        padding: 11px 13px;
+        font-size: 13px;
+    }
+
+    main {
+        padding: 10px;
+    }
+
+    section {
+        padding: 20px;
+    }
+
+    .imagen-espacio {
+        padding: 12px;
+    }
+
+    .contenedor-tema {
+        justify-content: center;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<!-- ENCABEZADO -->
+
+<header>
+    <div class="logo">
+        <img src="logo.jpg" alt="Logo del proyecto">
+    </div>
+
+    <div class="encabezado">
+        <h1>CÓDIGO HUMANO</h1>
+
+        <p>
+            Programando Rutas de Paz
+            para mi Bienestar Integral
+        </p>
+
+        <p>
+            CECyTE 24 - PAEC Cultura de la Paz -
+            Dimensión Académica
+        </p>
+
+        <p>
+            Desarrollado por: Ortega Perez Miguel Angel
+        </p>
+    </div>
+</header>
+
+<!-- MENÚ DE NAVEGACIÓN -->
+
+<nav>
+    <a href="portada.html">Portada</a>
+    <a href="index.html">Inicio</a>
+    <a href="apertura.html">Apertura</a>
+    <a href="desarrollo.html">Desarrollo</a>
+    <a href="cierre.html" class="activo">Cierre</a>
+    <a href="recursos.html">Recursos</a>
+</nav>
+
+<!-- BOTÓN DE MODO OSCURO -->
+
+<div class="contenedor-tema">
+    <button
+        id="botonTema"
+        class="boton-tema"
+        onclick="cambiarTema()">
+        🌙 Activar modo oscuro
+    </button>
+</div>
+
+<!-- CONTENIDO PRINCIPAL -->
+
+<main>
+
+<section id="cierre">
+
+    <h2>3. Cierre: Mi compromiso con la paz</h2>
+
+    <p>
+        La Cultura de la Paz no se construye únicamente
+        con palabras, sino con acciones que realizamos
+        diariamente.
+    </p>
+
+    <div class="imagen-espacio azul">
+        <img
+            src="convivencia.jpg"
+            alt="Convivencia escolar">
+    </div>
+
+    <h3>Mis compromisos personales</h3>
+
+    <div class="compromisos">
+        <ul>
+            <li>Escuchar antes de juzgar.</li>
+            <li>Respetar a mis compañeros y profesores.</li>
+            <li>Evitar las burlas y la discriminación.</li>
+            <li>Resolver desacuerdos mediante el diálogo.</li>
+            <li>Pedir ayuda cuando un conflicto lo requiera.</li>
+        </ul>
+    </div>
+
+    <h3>Compromisos colectivos</h3>
+
+    <p>
+        Como comunidad escolar podemos establecer
+        acuerdos para mejorar la convivencia:
+    </p>
+
+    <ul>
+        <li>Respetar las diferentes opiniones.</li>
+        <li>Trabajar en equipo sin excluir a nadie.</li>
+        <li>Evitar la violencia verbal y física.</li>
+        <li>Apoyar a quienes necesitan ayuda.</li>
+        <li>Promover espacios de diálogo.</li>
+    </ul>
+
+    <h3>Mi compromiso personal</h3>
+
+    <p>
+        Escribe una acción que realizarás para mejorar
+        la convivencia escolar.
+    </p>
+
+    <textarea
+        id="compromiso"
+        placeholder="Me comprometo a..."></textarea>
+
+    <button onclick="guardarCompromiso()">
+        Mostrar mi compromiso
+    </button>
+
+    <div
+        id="mensajeCompromiso"
+        class="resultado"
+        aria-live="polite">
+    </div>
+
+    <h3>Mensaje final</h3>
+
+    <div class="solucion">
+        <p>
+            "La paz no es solamente la ausencia
+            de conflictos; es aprender a resolver
+            nuestras diferencias con respeto,
+            diálogo, empatía y cooperación".
+        </p>
+    </div>
+
+    <p>
+        Mi compromiso comienza con mis decisiones.
+        Cada acción respetuosa contribuye a construir
+        una escuela más segura, inclusiva y pacífica.
+    </p>
+
+    <!-- BOTÓN DIRECTO A RECURSOS -->
+
+    <a href="recursos.html" class="boton-enlace">
+        Consultar recursos
+    </a>
+
+</section>
+
+</main>
+
+<!-- PIE DE PÁGINA -->
+
+<footer>
+    <p><strong>CÓDIGO HUMANO</strong></p>
+
+    <p>
+        Programando Rutas de Paz
+        para mi Bienestar Integral
+    </p>
+
+    <p>CECyTE 24</p>
+
+    <p>La paz también se programa.</p>
+</footer>
+
+<!-- JAVASCRIPT -->
+
+<script>
+
+/* MODO OSCURO */
+
+function cambiarTema() {
+    const oscuro =
+        document.body.classList.toggle("modo-oscuro");
+
+    localStorage.setItem(
+        "temaCodigoHumano",
+        oscuro ? "oscuro" : "claro"
+    );
+
+    actualizarBotonTema();
+}
+
+function actualizarBotonTema() {
+    const boton = document.getElementById("botonTema");
+
+    if (!boton) return;
+
+    const oscuro =
+        document.body.classList.contains("modo-oscuro");
+
+    boton.textContent = oscuro
+        ? "☀️ Activar modo claro"
+        : "🌙 Activar modo oscuro";
+}
+
+function cargarTemaGuardado() {
+    const tema =
+        localStorage.getItem("temaCodigoHumano");
+
+    document.body.classList.toggle(
+        "modo-oscuro",
+        tema === "oscuro"
+    );
+
+    actualizarBotonTema();
+}
+
+/* COMPROMISO PERSONAL */
+
+function guardarCompromiso() {
+    const compromiso =
+        document.getElementById("compromiso").value.trim();
+
+    const mensaje =
+        document.getElementById("mensajeCompromiso");
+
+    mensaje.style.display = "block";
+
+    if (compromiso === "") {
+        mensaje.textContent =
+            "Primero escribe tu compromiso con la paz.";
+    } else {
+        mensaje.textContent =
+            "Mi compromiso con la paz: " + compromiso;
+    }
+}
+
+/* CARGAR PREFERENCIA */
+
+cargarTemaGuardado();
+
+</script>
+
+</body>
+</html>

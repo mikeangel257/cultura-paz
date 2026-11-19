@@ -1,0 +1,839 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Recursos | Código Humano - CECyTE 24</title>
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #fffaf6;
+    color: #41454a;
+    line-height: 1.7;
+    transition: background-color 0.4s, color 0.4s;
+}
+
+/* ENCABEZADO */
+
+header {
+    background-color: #f8d5c2;
+    padding: 25px 35px;
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    transition: 0.4s;
+}
+
+.logo {
+    width: 125px;
+    height: 125px;
+    flex-shrink: 0;
+    border: 2px solid #c9947d;
+    border-radius: 30px;
+    background-color: #fff4eb;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    padding: 5px;
+}
+
+.logo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 25px;
+}
+
+.encabezado {
+    flex: 1;
+    text-align: center;
+}
+
+header h1 {
+    color: #70544b;
+    font-size: 34px;
+    margin-bottom: 8px;
+}
+
+header p {
+    color: #70544b;
+    font-size: 17px;
+}
+
+/* MENÚ */
+
+nav {
+    background-color: #bde7d4;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+nav a {
+    text-decoration: none;
+    color: #38594e;
+    padding: 14px 24px;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+nav a:hover,
+nav a.activo {
+    background-color: #98d5ba;
+    border-radius: 25px;
+}
+
+/* BOTÓN DE MODO OSCURO */
+
+.contenedor-tema {
+    display: flex;
+    justify-content: flex-end;
+    max-width: 1100px;
+    margin: 15px auto 0;
+    padding: 0 20px;
+}
+
+.boton-tema {
+    background-color: #7966a0;
+    color: white;
+    border: none;
+    border-radius: 30px;
+    padding: 13px 22px;
+    cursor: pointer;
+    font-size: 15px;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.boton-tema:hover {
+    background-color: #5c4a80;
+    transform: scale(1.04);
+}
+
+/* CONTENIDO */
+
+main {
+    max-width: 1100px;
+    margin: auto;
+    padding: 20px;
+}
+
+section {
+    background-color: white;
+    padding: 30px;
+    margin: 25px 0;
+    border: 2px solid #f4dfd5;
+    border-radius: 25px;
+    box-shadow: 0 3px 10px #0000000b;
+    transition: 0.4s;
+}
+
+h2 {
+    color: #87635b;
+    margin-bottom: 18px;
+}
+
+h3 {
+    color: #7966a0;
+    margin: 20px 0 10px;
+}
+
+p {
+    margin-bottom: 12px;
+}
+
+ul {
+    margin: 12px 0 18px 25px;
+}
+
+li {
+    margin-bottom: 8px;
+}
+
+/* TARJETAS DE RECURSOS */
+
+.tarjetas {
+    display: grid;
+    grid-template-columns:
+        repeat(auto-fit, minmax(220px, 1fr));
+    gap: 15px;
+    margin: 20px 0;
+}
+
+.tarjeta {
+    background-color: #e5f5ec;
+    padding: 22px;
+    border-radius: 25px;
+    transition: 0.4s;
+}
+
+.tarjeta:nth-child(even) {
+    background-color: #eee6fa;
+}
+
+.tarjeta h3 {
+    margin-top: 0;
+}
+
+.tarjeta a {
+    color: #386d62;
+    font-weight: bold;
+    overflow-wrap: anywhere;
+}
+
+.tarjeta a:hover {
+    text-decoration: none;
+}
+
+/* RECOMENDACIONES */
+
+.recomendacion {
+    background-color: #fff0df;
+    padding: 20px;
+    border-radius: 25px;
+    margin: 15px 0;
+    transition: 0.4s;
+}
+
+.solucion {
+    background-color: #e3f4e9;
+    padding: 20px;
+    border-radius: 25px;
+    margin: 15px 0;
+    transition: 0.4s;
+}
+
+/* IMÁGENES */
+
+.imagen-espacio {
+    width: 100%;
+    background-color: #fdf1e9;
+    border: 2px solid #d5ac9d;
+    border-radius: 35px;
+    margin: 25px 0;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    gap: 8px;
+    overflow: hidden;
+    transition: 0.4s;
+}
+
+.imagen-espacio.menta {
+    background-color: #eaf8ef;
+    border-color: #9ccdb6;
+}
+
+.imagen-espacio.lavanda {
+    background-color: #f2edfa;
+    border-color: #c2afd9;
+}
+
+.imagen-espacio img {
+    display: block;
+    width: 100%;
+    max-width: 700px;
+    height: auto;
+    max-height: 450px;
+    object-fit: contain;
+    border-radius: 35px;
+}
+
+/* BOTONES */
+
+.boton-enlace {
+    display: inline-block;
+    background-color: #b9e4d0;
+    color: #35564a;
+    text-decoration: none;
+    border-radius: 25px;
+    padding: 13px 22px;
+    font-size: 15px;
+    font-weight: bold;
+    margin: 10px 5px 10px 0;
+    transition: 0.3s;
+}
+
+.boton-enlace:hover {
+    background-color: #95d3b6;
+    transform: translateY(-2px);
+}
+
+/* PIE DE PÁGINA */
+
+footer {
+    background-color: #f8d5c2;
+    color: #70544b;
+    text-align: center;
+    padding: 30px;
+    margin-top: 30px;
+    transition: 0.4s;
+}
+
+/* MODO OSCURO */
+
+body.modo-oscuro {
+    background-color: #171923;
+    color: #e5e7eb;
+}
+
+body.modo-oscuro header,
+body.modo-oscuro footer {
+    background-color: #292536;
+    color: #f3e9fa;
+}
+
+body.modo-oscuro header h1,
+body.modo-oscuro header p {
+    color: #f3e9fa;
+}
+
+body.modo-oscuro nav {
+    background-color: #263d39;
+}
+
+body.modo-oscuro nav a {
+    color: #e5fff3;
+}
+
+body.modo-oscuro nav a:hover,
+body.modo-oscuro nav a.activo {
+    background-color: #3e6257;
+}
+
+body.modo-oscuro section {
+    background-color: #252936;
+    border-color: #46475b;
+}
+
+body.modo-oscuro h2 {
+    color: #ffcfb5;
+}
+
+body.modo-oscuro h3 {
+    color: #d2baff;
+}
+
+body.modo-oscuro .tarjeta {
+    background-color: #343747;
+    color: #f0f0f5;
+}
+
+body.modo-oscuro .tarjeta:nth-child(even) {
+    background-color: #3b344e;
+}
+
+body.modo-oscuro .tarjeta a {
+    color: #b9e4d0;
+}
+
+body.modo-oscuro .recomendacion {
+    background-color: #493a32;
+    color: #fff1e6;
+}
+
+body.modo-oscuro .solucion {
+    background-color: #29453d;
+    color: #e2fff2;
+}
+
+body.modo-oscuro .imagen-espacio,
+body.modo-oscuro .imagen-espacio.menta,
+body.modo-oscuro .imagen-espacio.lavanda {
+    background-color: #303443;
+    border-color: #62677a;
+}
+
+body.modo-oscuro .logo {
+    background-color: #393342;
+    border-color: #8d7488;
+}
+
+body.modo-oscuro .boton-enlace {
+    background-color: #66558c;
+    color: white;
+}
+
+body.modo-oscuro .boton-enlace:hover {
+    background-color: #8270ad;
+}
+
+body.modo-oscuro .boton-tema {
+    background-color: #b9e4d0;
+    color: #35564a;
+}
+
+body.modo-oscuro .boton-tema:hover {
+    background-color: #95d3b6;
+}
+
+/* DISEÑO PARA CELULARES */
+
+@media (max-width: 600px) {
+    header {
+        flex-direction: column;
+        padding: 20px;
+        gap: 15px;
+    }
+
+    header h1 {
+        font-size: 26px;
+    }
+
+    nav a {
+        padding: 11px 13px;
+        font-size: 13px;
+    }
+
+    main {
+        padding: 10px;
+    }
+
+    section {
+        padding: 20px;
+    }
+
+    .imagen-espacio {
+        padding: 12px;
+    }
+
+    .contenedor-tema {
+        justify-content: center;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<!-- ENCABEZADO -->
+
+<header>
+    <div class="logo">
+        <img src="logo.jpg" alt="Logo del proyecto">
+    </div>
+
+    <div class="encabezado">
+        <h1>CÓDIGO HUMANO</h1>
+
+        <p>
+            Programando Rutas de Paz
+            para mi Bienestar Integral
+        </p>
+
+        <p>
+            CECyTE 24 - PAEC Cultura de la Paz -
+            Dimensión Académica
+        </p>
+
+        <p>
+            Desarrollado por: Ortega Perez Miguel Angel
+        </p>
+    </div>
+</header>
+
+<!-- MENÚ DE NAVEGACIÓN -->
+
+<nav>
+    <a href="portada.html">Portada</a>
+    <a href="inicio.html">Inicio</a>
+    <a href="apertura.html">Apertura</a>
+    <a href="desarrollo.html">Desarrollo</a>
+    <a href="cierre.html">Cierre</a>
+    <a href="recursos.html" class="activo">Recursos</a>
+</nav>
+
+<!-- BOTÓN DE MODO OSCURO -->
+
+<div class="contenedor-tema">
+    <button
+        id="botonTema"
+        class="boton-tema"
+        onclick="cambiarTema()">
+        🌙 Activar modo oscuro
+    </button>
+</div>
+
+<!-- CONTENIDO PRINCIPAL -->
+
+<main>
+
+<section id="recursos">
+
+    <h2>4. Recursos para construir la paz</h2>
+
+    <p>
+        En esta sección encontrarás información,
+        recomendaciones y materiales que pueden
+        ayudarte a fortalecer la Cultura de la Paz
+        dentro y fuera de nuestra escuela.
+    </p>
+
+    <h3>¿Dónde podemos encontrar apoyo?</h3>
+
+    <p>
+        La convivencia pacífica es una
+        responsabilidad compartida.
+        Existen personas e instituciones que
+        pueden ayudarnos a resolver conflictos
+        y prevenir situaciones de violencia.
+    </p>
+
+    <div class="imagen-espacio menta">
+        <img
+            src="orientacion.jpg"
+            alt="Orientación y apoyo escolar">
+    </div>
+
+    <div class="tarjetas">
+
+        <div class="tarjeta">
+            <h3>Orientación escolar</h3>
+
+            <p>
+                Es un espacio donde los estudiantes
+                pueden recibir apoyo y orientación
+                ante dificultades de convivencia.
+            </p>
+        </div>
+
+        <div class="tarjeta">
+            <h3>Docentes</h3>
+
+            <p>
+                Los profesores pueden ayudar
+                a identificar conflictos,
+                escuchar inquietudes y buscar
+                soluciones respetuosas.
+            </p>
+        </div>
+
+        <div class="tarjeta">
+            <h3>Familia</h3>
+
+            <p>
+                La comunicación con nuestros
+                familiares puede ayudarnos
+                a expresar emociones y recibir
+                acompañamiento.
+            </p>
+        </div>
+
+        <div class="tarjeta">
+            <h3>Compañeros</h3>
+
+            <p>
+                El apoyo entre estudiantes
+                fortalece la confianza,
+                la empatía y el sentido
+                de pertenencia.
+            </p>
+        </div>
+
+    </div>
+
+    <h3>Recomendaciones para una convivencia sana</h3>
+
+    <div class="recomendacion">
+        <strong>1. Practica la escucha activa.</strong>
+
+        <p>
+            Presta atención cuando alguien habla
+            y evita interrumpir o juzgar
+            antes de conocer su situación.
+        </p>
+    </div>
+
+    <div class="recomendacion">
+        <strong>2. Respeta las diferencias.</strong>
+
+        <p>
+            Todas las personas tienen distintas
+            opiniones, capacidades, experiencias
+            y formas de pensar.
+        </p>
+    </div>
+
+    <div class="recomendacion">
+        <strong>3. Evita la violencia.</strong>
+
+        <p>
+            No utilices insultos, amenazas
+            ni agresiones para solucionar
+            un desacuerdo.
+        </p>
+    </div>
+
+    <div class="recomendacion">
+        <strong>4. Busca ayuda.</strong>
+
+        <p>
+            Si una situación pone en riesgo
+            tu bienestar o el de otra persona,
+            acude a un docente, orientación
+            escolar o un adulto de confianza.
+        </p>
+    </div>
+
+    <div class="recomendacion">
+        <strong>5. Cumple los acuerdos.</strong>
+
+        <p>
+            Los compromisos son importantes
+            para recuperar la confianza
+            y mejorar las relaciones.
+        </p>
+    </div>
+
+    <div class="imagen-espacio lavanda">
+        <img
+            src="convivencia.jpg"
+            alt="Convivencia pacífica entre estudiantes">
+    </div>
+
+    <h3>Recursos digitales y fuentes de consulta</h3>
+
+    <p>
+        Estos materiales de organismos
+        internacionales ofrecen información
+        para promover la paz, la inclusión,
+        el respeto y la convivencia escolar.
+    </p>
+
+    <div class="tarjetas">
+
+        <div class="tarjeta">
+            <h3>UNESCO</h3>
+
+            <p>
+                Educación para la paz,
+                los derechos humanos
+                y el desarrollo sostenible.
+            </p>
+
+            <a
+                href="https://www.unesco.org/es/global-citizenship-peace-education/recommendation"
+                target="_blank"
+                rel="noopener noreferrer">
+                Consultar recurso
+            </a>
+        </div>
+
+        <div class="tarjeta">
+            <h3>UNICEF México</h3>
+
+            <p>
+                Información para reconocer
+                y prevenir el acoso escolar.
+            </p>
+
+            <a
+                href="https://www.unicef.org/mexico/historias/hablando-con-ni%C3%B1as-ni%C3%B1os-y-adolescentes-sobre-acoso"
+                target="_blank"
+                rel="noopener noreferrer">
+                Consultar recurso
+            </a>
+        </div>
+
+        <div class="tarjeta">
+            <h3>Habilidades socioemocionales</h3>
+
+            <p>
+                Manuales educativos sobre empatía,
+                comunicación, cooperación,
+                manejo de emociones y resolución
+                de problemas.
+            </p>
+
+            <a
+                href="https://www.unicef.org/mexico/informes/manuales-de-habilidades-socioemocionales-para-la-vida"
+                target="_blank"
+                rel="noopener noreferrer">
+                Consultar manuales
+            </a>
+        </div>
+
+        <div class="tarjeta">
+            <h3>Seguridad digital</h3>
+
+            <p>
+                Recomendaciones para prevenir
+                el ciberacoso y actuar
+                de manera responsable
+                en internet.
+            </p>
+
+            <a
+                href="https://www.unicef.org/mexico/ciberseguridad"
+                target="_blank"
+                rel="noopener noreferrer">
+                Consultar recurso
+            </a>
+        </div>
+
+    </div>
+
+    <h3>¿Qué hacer ante un conflicto escolar?</h3>
+
+    <div class="solucion">
+        <ul>
+            <li>
+                Mantén la calma y evita
+                responder con violencia.
+            </li>
+
+            <li>
+                Identifica qué está ocurriendo
+                y cómo te sientes.
+            </li>
+
+            <li>
+                Escucha a las personas involucradas
+                cuando sea seguro hacerlo.
+            </li>
+
+            <li>
+                Expresa tu punto de vista
+                de manera respetuosa.
+            </li>
+
+            <li>
+                Busca soluciones que respeten
+                los derechos de todos.
+            </li>
+
+            <li>
+                Solicita ayuda de un adulto
+                de confianza si el conflicto
+                incluye amenazas, acoso
+                o cualquier tipo de violencia.
+            </li>
+        </ul>
+    </div>
+
+    <h3>Reflexión final</h3>
+
+    <p>
+        Construir una Cultura de la Paz
+        requiere compromiso, empatía,
+        responsabilidad y respeto.
+    </p>
+
+    <p>
+        Así como un programa informático
+        necesita instrucciones para funcionar,
+        nuestra convivencia necesita
+        decisiones conscientes que promuevan
+        el bienestar de toda la comunidad.
+    </p>
+
+    <div class="solucion">
+        <h3>La paz también se programa</h3>
+
+        <p>
+            Cada decisión es una oportunidad
+            para crear un ambiente más justo,
+            respetuoso, seguro e inclusivo.
+        </p>
+    </div>
+
+    <!-- BOTÓN DIRECTO AL INICIO -->
+
+    <a href="index.html" class="boton-enlace">
+        Volver al inicio
+    </a>
+
+</section>
+
+</main>
+
+<!-- PIE DE PÁGINA -->
+
+<footer>
+    <p><strong>CÓDIGO HUMANO</strong></p>
+
+    <p>
+        Programando Rutas de Paz
+        para mi Bienestar Integral
+    </p>
+
+    <p>CECyTE 24</p>
+
+    <p>La paz también se programa.</p>
+</footer>
+
+<!-- JAVASCRIPT -->
+
+<script>
+
+/* CAMBIAR MODO OSCURO */
+
+function cambiarTema() {
+    const oscuro =
+        document.body.classList.toggle("modo-oscuro");
+
+    localStorage.setItem(
+        "temaCodigoHumano",
+        oscuro ? "oscuro" : "claro"
+    );
+
+    actualizarBotonTema();
+}
+
+/* ACTUALIZAR TEXTO DEL BOTÓN */
+
+function actualizarBotonTema() {
+    const boton = document.getElementById("botonTema");
+
+    if (!boton) return;
+
+    const oscuro =
+        document.body.classList.contains("modo-oscuro");
+
+    boton.textContent = oscuro
+        ? "☀️ Activar modo claro"
+        : "🌙 Activar modo oscuro";
+}
+
+/* RECORDAR TEMA GUARDADO */
+
+function cargarTemaGuardado() {
+    const tema =
+        localStorage.getItem("temaCodigoHumano");
+
+    document.body.classList.toggle(
+        "modo-oscuro",
+        tema === "oscuro"
+    );
+
+    actualizarBotonTema();
+}
+
+/* INICIAR */
+
+cargarTemaGuardado();
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,536 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Código Humano - CECyTE 24</title>
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #fffaf6;
+    color: #41454a;
+    line-height: 1.7;
+    transition: background-color 0.4s, color 0.4s;
+}
+
+/* ENCABEZADO */
+
+header {
+    background-color: #f8d5c2;
+    padding: 25px 35px;
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    transition: 0.4s;
+}
+
+.logo {
+    width: 125px;
+    height: 125px;
+    flex-shrink: 0;
+    border: 2px solid #c9947d;
+    border-radius: 30px;
+    background-color: #fff4eb;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    padding: 5px;
+}
+
+.logo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 25px;
+}
+
+.encabezado {
+    flex: 1;
+    text-align: center;
+}
+
+header h1 {
+    color: #70544b;
+    font-size: 34px;
+    margin-bottom: 8px;
+}
+
+header p {
+    color: #70544b;
+    font-size: 17px;
+}
+
+/* MENÚ DE NAVEGACIÓN */
+
+nav {
+    background-color: #bde7d4;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+nav a {
+    text-decoration: none;
+    color: #38594e;
+    padding: 14px 24px;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+nav a:hover,
+nav a.activo {
+    background-color: #98d5ba;
+    border-radius: 25px;
+}
+
+/* BOTÓN DE MODO OSCURO */
+
+.contenedor-tema {
+    display: flex;
+    justify-content: flex-end;
+    max-width: 1100px;
+    margin: 15px auto 0;
+    padding: 0 20px;
+}
+
+.boton-tema {
+    background-color: #7966a0;
+    color: white;
+    border: none;
+    border-radius: 30px;
+    padding: 13px 22px;
+    cursor: pointer;
+    font-size: 15px;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.boton-tema:hover {
+    background-color: #5c4a80;
+    transform: scale(1.04);
+}
+
+/* CONTENIDO PRINCIPAL */
+
+main {
+    max-width: 1100px;
+    margin: auto;
+    padding: 20px;
+}
+
+section {
+    background-color: white;
+    padding: 30px;
+    margin: 25px 0;
+    border: 2px solid #f4dfd5;
+    border-radius: 25px;
+    box-shadow: 0 3px 10px #0000000b;
+    transition: 0.4s;
+}
+
+h2 {
+    color: #87635b;
+    margin-bottom: 18px;
+}
+
+h3 {
+    color: #7966a0;
+    margin: 20px 0 10px;
+}
+
+p {
+    margin-bottom: 12px;
+}
+
+/* DATOS DEL PROYECTO */
+
+.datos {
+    background-color: #e5f5ec;
+    padding: 20px;
+    margin: 20px 0;
+    border-radius: 25px;
+    transition: 0.4s;
+}
+
+/* IMÁGENES */
+
+.imagen-espacio {
+    width: 100%;
+    background-color: #fdf1e9;
+    border: 2px solid #d5ac9d;
+    border-radius: 35px;
+    margin: 25px 0;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    gap: 8px;
+    overflow: hidden;
+    transition: 0.4s;
+}
+
+.imagen-espacio img {
+    display: block;
+    width: 100%;
+    max-width: 700px;
+    height: auto;
+    max-height: 450px;
+    object-fit: contain;
+    border-radius: 35px;
+}
+
+/* BOTÓN COMENZAR MI RUTA */
+
+.boton-enlace {
+    display: inline-block;
+    background-color: #b9e4d0;
+    color: #35564a;
+    text-decoration: none;
+    border-radius: 25px;
+    padding: 13px 22px;
+    font-size: 15px;
+    font-weight: bold;
+    margin: 10px 5px 10px 0;
+    transition: 0.3s;
+}
+
+.boton-enlace:hover {
+    background-color: #95d3b6;
+    transform: translateY(-2px);
+}
+
+/* PIE DE PÁGINA */
+
+footer {
+    background-color: #f8d5c2;
+    color: #70544b;
+    text-align: center;
+    padding: 30px;
+    margin-top: 30px;
+    transition: 0.4s;
+}
+
+/* MODO OSCURO */
+
+body.modo-oscuro {
+    background-color: #171923;
+    color: #e5e7eb;
+}
+
+body.modo-oscuro header,
+body.modo-oscuro footer {
+    background-color: #292536;
+    color: #f3e9fa;
+}
+
+body.modo-oscuro header h1,
+body.modo-oscuro header p {
+    color: #f3e9fa;
+}
+
+body.modo-oscuro nav {
+    background-color: #263d39;
+}
+
+body.modo-oscuro nav a {
+    color: #e5fff3;
+}
+
+body.modo-oscuro nav a:hover,
+body.modo-oscuro nav a.activo {
+    background-color: #3e6257;
+}
+
+body.modo-oscuro section {
+    background-color: #252936;
+    border-color: #46475b;
+}
+
+body.modo-oscuro h2 {
+    color: #ffcfb5;
+}
+
+body.modo-oscuro h3 {
+    color: #d2baff;
+}
+
+body.modo-oscuro .datos {
+    background-color: #343747;
+    color: #f0f0f5;
+}
+
+body.modo-oscuro .imagen-espacio {
+    background-color: #303443;
+    border-color: #62677a;
+}
+
+body.modo-oscuro .logo {
+    background-color: #393342;
+    border-color: #8d7488;
+}
+
+body.modo-oscuro .boton-enlace {
+    background-color: #66558c;
+    color: white;
+}
+
+body.modo-oscuro .boton-enlace:hover {
+    background-color: #8270ad;
+}
+
+body.modo-oscuro .boton-tema {
+    background-color: #b9e4d0;
+    color: #35564a;
+}
+
+body.modo-oscuro .boton-tema:hover {
+    background-color: #95d3b6;
+}
+
+/* DISEÑO PARA CELULARES */
+
+@media (max-width: 600px) {
+    header {
+        flex-direction: column;
+        padding: 20px;
+        gap: 15px;
+    }
+
+    header h1 {
+        font-size: 26px;
+    }
+
+    nav a {
+        padding: 11px 13px;
+        font-size: 13px;
+    }
+
+    main {
+        padding: 10px;
+    }
+
+    section {
+        padding: 20px;
+    }
+
+    .imagen-espacio {
+        padding: 12px;
+    }
+
+    .contenedor-tema {
+        justify-content: center;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<!-- ENCABEZADO -->
+
+<header>
+    <div class="logo">
+        <img src="logo.jpg" alt="Logo del proyecto">
+    </div>
+
+    <div class="encabezado">
+        <h1>CÓDIGO HUMANO</h1>
+
+        <p>
+            Programando Rutas de Paz
+            para la Cultura de la Paz
+        </p>
+
+        <p>
+            CECyTE 24 - PAEC Cultura de la Paz -
+            Dimension Académica
+        </p>
+
+        <p>
+            Desarrollado por: Ortega Perez Miguel Angel
+        </p>
+    </div>
+</header>
+
+<!-- MENÚ DE NAVEGACIÓN -->
+
+<nav>
+    <a href="portada.html">Portada</a>
+    <a href="inicio.html" class="activo">Inicio</a>
+    <a href="apertura.html">Apertura</a>
+    <a href="desarrollo.html">Desarrollo</a>
+    <a href="cierre.html">Cierre</a>
+    <a href="recursos.html">Recursos</a>
+</nav>
+
+<!-- CAMBIAR TEMA -->
+
+<div class="contenedor-tema">
+    <button
+        id="botonTema"
+        class="boton-tema"
+        onclick="cambiarTema()">
+        🌙 Activar modo oscuro
+    </button>
+</div>
+
+<!-- CONTENIDO -->
+
+<main>
+
+<section id="inicio">
+
+    <h2>Bienvenidos a Código Humano</h2>
+
+    <p>
+        La paz también se programa.
+        Cada decisión que tomamos dentro
+        de nuestra escuela puede mejorar
+        o perjudicar la convivencia.
+    </p>
+
+    <p>
+        Esta plataforma tiene como objetivo
+        promover el respeto, la empatía,
+        el diálogo y la cooperación entre
+        estudiantes y profesores del CECyTE 24.
+    </p>
+
+    <div class="imagen-espacio">
+        <img
+            src="Alumnos conviviendo.jpg"
+            alt="Estudiantes conviviendo en la escuela">
+    </div>
+
+    <div class="datos">
+
+        <h3>Datos del proyecto</h3>
+
+        <p>
+            <strong>Institución:</strong>
+            CECyTE 24
+        </p>
+
+        <p>
+            <strong>Proyecto:</strong>
+            Código Humano
+        </p>
+
+        <p>
+            <strong>Dimension:</strong>
+            Académico
+        </p>
+
+        <h3>Estudiantes</h3>
+
+        <p>Miguel Angel Ortega Pérez</p>
+        <p>Marco Antonio Cortez Valencia</p>
+        <p>Josue Nahum Fernandez Lima</p>
+        <p>Janeth Saldaña Hernandez</p>
+        <p>Carlos Alexander Rosete Pluma</p>
+
+        <p>
+            <strong>Grupo:</strong>
+            3C Programacion
+        </p>
+
+    </div>
+
+    <h3>¿Qué ruta podemos programar?</h3>
+
+    <p>
+        Una ruta donde los conflictos
+        no se resuelvan con insultos
+        o violencia, sino mediante
+        decisiones responsables y pacíficas.
+    </p>
+
+    <!-- ENLACE DIRECTO A APERTURA -->
+
+    <a href="apertura.html" class="boton-enlace">
+        Comenzar mi ruta
+    </a>
+
+</section>
+
+</main>
+
+<!-- PIE DE PÁGINA -->
+
+<footer>
+    <p><strong>CÓDIGO HUMANO</strong></p>
+
+    <p>
+        Programando Rutas de Paz
+        para mi Bienestar Integral
+    </p>
+
+    <p>CECyTE 24</p>
+
+    <p>La paz también se programa.</p>
+</footer>
+
+<!-- FUNCIONES -->
+
+<script>
+function cambiarTema() {
+    const oscuro =
+        document.body.classList.toggle("modo-oscuro");
+
+    localStorage.setItem(
+        "temaCodigoHumano",
+        oscuro ? "oscuro" : "claro"
+    );
+
+    actualizarBotonTema();
+}
+
+function actualizarBotonTema() {
+    const boton = document.getElementById("botonTema");
+
+    if (!boton) return;
+
+    const oscuro =
+        document.body.classList.contains("modo-oscuro");
+
+    boton.textContent = oscuro
+        ? "☀️ Activar modo claro"
+        : "🌙 Activar modo oscuro";
+}
+
+function cargarTemaGuardado() {
+    const tema =
+        localStorage.getItem("temaCodigoHumano");
+
+    document.body.classList.toggle(
+        "modo-oscuro",
+        tema === "oscuro"
+    );
+
+    actualizarBotonTema();
+}
+
+cargarTemaGuardado();
+</script>
+
+</body>
+</html>

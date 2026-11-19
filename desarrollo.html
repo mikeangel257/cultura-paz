@@ -1,0 +1,1114 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Desarrollo | Código Humano - CECyTE 24</title>
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #fffaf6;
+    color: #41454a;
+    line-height: 1.7;
+    transition: background-color 0.4s, color 0.4s;
+}
+
+/* ENCABEZADO */
+
+header {
+    background-color: #f8d5c2;
+    padding: 25px 35px;
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    transition: 0.4s;
+}
+
+.logo {
+    width: 125px;
+    height: 125px;
+    flex-shrink: 0;
+    border: 2px solid #c9947d;
+    border-radius: 30px;
+    background-color: #fff4eb;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    padding: 5px;
+}
+
+.logo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 25px;
+}
+
+.encabezado {
+    flex: 1;
+    text-align: center;
+}
+
+header h1 {
+    color: #70544b;
+    font-size: 34px;
+    margin-bottom: 8px;
+}
+
+header p {
+    color: #70544b;
+    font-size: 17px;
+}
+
+/* MENÚ DE NAVEGACIÓN */
+
+nav {
+    background-color: #bde7d4;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+nav a {
+    text-decoration: none;
+    color: #38594e;
+    padding: 14px 24px;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+nav a:hover,
+nav a.activo {
+    background-color: #98d5ba;
+    border-radius: 25px;
+}
+
+/* BOTÓN DE MODO OSCURO */
+
+.contenedor-tema {
+    display: flex;
+    justify-content: flex-end;
+    max-width: 1100px;
+    margin: 15px auto 0;
+    padding: 0 20px;
+}
+
+.boton-tema {
+    background-color: #7966a0;
+    color: white;
+    border: none;
+    border-radius: 30px;
+    padding: 13px 22px;
+    cursor: pointer;
+    font-size: 15px;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.boton-tema:hover {
+    background-color: #5c4a80;
+    transform: scale(1.04);
+}
+
+/* CONTENIDO PRINCIPAL */
+
+main {
+    max-width: 1100px;
+    margin: auto;
+    padding: 20px;
+}
+
+section {
+    background-color: white;
+    padding: 30px;
+    margin: 25px 0;
+    border: 2px solid #f4dfd5;
+    border-radius: 25px;
+    box-shadow: 0 3px 10px #0000000b;
+    transition: 0.4s;
+}
+
+h2 {
+    color: #87635b;
+    margin-bottom: 18px;
+}
+
+h3 {
+    color: #7966a0;
+    margin: 20px 0 10px;
+}
+
+p {
+    margin-bottom: 12px;
+}
+
+ul, ol {
+    margin: 12px 0 18px 25px;
+}
+
+li {
+    margin-bottom: 8px;
+}
+
+/* PASOS DE LA RUTA DE PAZ */
+
+.paso {
+    background-color: #eee6fa;
+    padding: 17px;
+    margin: 12px 0;
+    border-radius: 25px;
+    transition: 0.4s;
+}
+
+.paso:nth-child(even) {
+    background-color: #e4f5ef;
+}
+
+/* PROBLEMAS Y SOLUCIONES */
+
+.problema {
+    background-color: #fff0df;
+    padding: 18px;
+    margin: 15px 0;
+    border-radius: 25px;
+    transition: 0.4s;
+}
+
+.solucion {
+    background-color: #e3f4e9;
+    padding: 18px;
+    margin: 15px 0;
+    border-radius: 25px;
+    transition: 0.4s;
+}
+
+.datos {
+    background-color: #e5f5ec;
+    padding: 20px;
+    margin: 20px 0;
+    border-radius: 25px;
+    transition: 0.4s;
+}
+
+/* IMÁGENES */
+
+.imagen-espacio {
+    width: 100%;
+    background-color: #fdf1e9;
+    border: 2px solid #d5ac9d;
+    border-radius: 35px;
+    margin: 25px 0;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    gap: 8px;
+    overflow: hidden;
+    transition: 0.4s;
+}
+
+.imagen-espacio.menta {
+    background-color: #eaf8ef;
+    border-color: #9ccdb6;
+}
+
+.imagen-espacio.lavanda {
+    background-color: #f2edfa;
+    border-color: #c2afd9;
+}
+
+.imagen-espacio.azul {
+    background-color: #eaf4fb;
+    border-color: #accfe6;
+}
+
+.imagen-espacio img {
+    display: block;
+    width: 100%;
+    max-width: 700px;
+    height: auto;
+    max-height: 450px;
+    object-fit: contain;
+    border-radius: 35px;
+}
+
+/* PLANO CARTESIANO */
+
+.plano-contenedor {
+    background-color: #f5f1fc;
+    border: 2px solid #c2afd9;
+    border-radius: 25px;
+    padding: 18px;
+    margin: 24px 0;
+    text-align: center;
+    transition: 0.4s;
+}
+
+.plano-contenedor svg {
+    width: 100%;
+    height: auto;
+    max-width: 760px;
+    background-color: white;
+    border-radius: 15px;
+}
+
+.plano-nota {
+    font-size: 14px;
+    color: #70544b;
+    margin-top: 12px;
+}
+
+.plano-contenedor ol {
+    text-align: left;
+    max-width: 580px;
+    margin: 16px auto;
+    padding-left: 30px;
+}
+
+/* ACTIVIDAD INTERACTIVA */
+
+.actividad {
+    background-color: #eee6fa;
+    border-radius: 25px;
+    padding: 22px;
+    margin-top: 20px;
+    transition: 0.4s;
+}
+
+select {
+    width: 100%;
+    padding: 13px;
+    margin: 12px 0;
+    border: 1px solid #c8b7d8;
+    border-radius: 25px;
+    font-family: Arial, sans-serif;
+    font-size: 15px;
+    background-color: white;
+}
+
+.resultado {
+    background-color: white;
+    padding: 18px;
+    margin-top: 15px;
+    border-radius: 25px;
+    display: none;
+    overflow-wrap: anywhere;
+}
+
+/* BOTONES */
+
+button,
+.boton-enlace {
+    display: inline-block;
+    background-color: #b9e4d0;
+    color: #35564a;
+    border: none;
+    text-decoration: none;
+    border-radius: 25px;
+    padding: 13px 22px;
+    font-size: 15px;
+    font-weight: bold;
+    cursor: pointer;
+    margin: 10px 5px 10px 0;
+    transition: 0.3s;
+}
+
+button:hover,
+.boton-enlace:hover {
+    background-color: #95d3b6;
+    transform: translateY(-2px);
+}
+
+.boton-tema {
+    background-color: #7966a0;
+    color: white;
+}
+
+.boton-tema:hover {
+    background-color: #5c4a80;
+}
+
+/* PIE DE PÁGINA */
+
+footer {
+    background-color: #f8d5c2;
+    color: #70544b;
+    text-align: center;
+    padding: 30px;
+    margin-top: 30px;
+    transition: 0.4s;
+}
+
+/* MODO OSCURO */
+
+body.modo-oscuro {
+    background-color: #171923;
+    color: #e5e7eb;
+}
+
+body.modo-oscuro header,
+body.modo-oscuro footer {
+    background-color: #292536;
+    color: #f3e9fa;
+}
+
+body.modo-oscuro header h1,
+body.modo-oscuro header p {
+    color: #f3e9fa;
+}
+
+body.modo-oscuro nav {
+    background-color: #263d39;
+}
+
+body.modo-oscuro nav a {
+    color: #e5fff3;
+}
+
+body.modo-oscuro nav a:hover,
+body.modo-oscuro nav a.activo {
+    background-color: #3e6257;
+}
+
+body.modo-oscuro section {
+    background-color: #252936;
+    border-color: #46475b;
+}
+
+body.modo-oscuro h2 {
+    color: #ffcfb5;
+}
+
+body.modo-oscuro h3 {
+    color: #d2baff;
+}
+
+body.modo-oscuro .paso,
+body.modo-oscuro .datos,
+body.modo-oscuro .actividad {
+    background-color: #343747;
+    color: #f0f0f5;
+}
+
+body.modo-oscuro .paso:nth-child(even) {
+    background-color: #3b344e;
+}
+
+body.modo-oscuro .problema {
+    background-color: #493a32;
+    color: #fff1e6;
+}
+
+body.modo-oscuro .solucion {
+    background-color: #29453d;
+    color: #e2fff2;
+}
+
+body.modo-oscuro .imagen-espacio,
+body.modo-oscuro .imagen-espacio.menta,
+body.modo-oscuro .imagen-espacio.lavanda,
+body.modo-oscuro .imagen-espacio.azul {
+    background-color: #303443;
+    border-color: #62677a;
+}
+
+body.modo-oscuro .logo {
+    background-color: #393342;
+    border-color: #8d7488;
+}
+
+body.modo-oscuro .plano-contenedor {
+    background-color: #343047;
+    border-color: #8270ad;
+}
+
+body.modo-oscuro .plano-nota {
+    color: #e5d8f5;
+}
+
+body.modo-oscuro select {
+    background-color: #222633;
+    color: white;
+    border-color: #77718d;
+}
+
+body.modo-oscuro .resultado {
+    background-color: #202e2c;
+    color: #e6fff3;
+}
+
+body.modo-oscuro button,
+body.modo-oscuro .boton-enlace {
+    background-color: #66558c;
+    color: white;
+}
+
+body.modo-oscuro button:hover,
+body.modo-oscuro .boton-enlace:hover {
+    background-color: #8270ad;
+}
+
+body.modo-oscuro .boton-tema {
+    background-color: #b9e4d0;
+    color: #35564a;
+}
+
+body.modo-oscuro .boton-tema:hover {
+    background-color: #95d3b6;
+}
+
+/* DISEÑO PARA CELULARES */
+
+@media (max-width: 600px) {
+    header {
+        flex-direction: column;
+        padding: 20px;
+        gap: 15px;
+    }
+
+    header h1 {
+        font-size: 26px;
+    }
+
+    nav a {
+        padding: 11px 13px;
+        font-size: 13px;
+    }
+
+    main {
+        padding: 10px;
+    }
+
+    section {
+        padding: 20px;
+    }
+
+    .imagen-espacio {
+        padding: 12px;
+    }
+
+    .contenedor-tema {
+        justify-content: center;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<!-- ENCABEZADO -->
+
+<header>
+    <div class="logo">
+        <img src="logo.jpg" alt="Logo del proyecto">
+    </div>
+
+    <div class="encabezado">
+        <h1>CÓDIGO HUMANO</h1>
+
+        <p>
+            Programando Rutas de Paz
+            para mi Bienestar Integral
+        </p>
+
+        <p>
+            CECyTE 24 - PAEC Cultura de la Paz -
+            Dimension Académica
+        </p>
+
+        <p>
+            Desarrollado por: Ortega Perez Miguel Angel
+        </p>
+    </div>
+</header>
+
+<!-- MENÚ DE NAVEGACIÓN -->
+
+<nav>
+    <a href="portada.html">Portada</a>
+    <a href="index.html">Inicio</a>
+    <a href="apertura.html">Apertura</a>
+    <a href="desarrollo.html" class="activo">Desarrollo</a>
+    <a href="cierre.html">Cierre</a>
+    <a href="recursos.html">Recursos</a>
+</nav>
+
+<!-- BOTÓN DE MODO OSCURO -->
+
+<div class="contenedor-tema">
+    <button
+        id="botonTema"
+        class="boton-tema"
+        onclick="cambiarTema()">
+        🌙 Activar modo oscuro
+    </button>
+</div>
+
+<!-- CONTENIDO PRINCIPAL -->
+
+<main>
+
+<section id="desarrollo">
+
+    <h2>2. Desarrollo: Programo mi Ruta de Paz</h2>
+
+    <p>
+        Resolver un conflicto requiere seguir una secuencia
+        de acciones. Al igual que en programación,
+        cada paso tiene una función importante.
+    </p>
+
+    <div class="imagen-espacio azul">
+        <img
+            src="vero.jpg"
+            alt="Diálogo y resolución de conflictos">
+    </div>
+
+    <h3>Mi código de paz: 7 acciones</h3>
+
+    <div class="paso">
+        <strong>1. Me detengo.</strong>
+        <p>
+            Evito reaccionar impulsivamente
+            cuando estoy enojado o molesto.
+        </p>
+    </div>
+
+    <div class="paso">
+        <strong>2. Identifico mis emociones.</strong>
+        <p>
+            Reconozco lo que siento antes de responder.
+        </p>
+    </div>
+
+    <div class="paso">
+        <strong>3. Escucho.</strong>
+        <p>
+            Permito que la otra persona explique
+            su punto de vista.
+        </p>
+    </div>
+
+    <div class="paso">
+        <strong>4. Dialogo.</strong>
+        <p>
+            Expreso lo que pienso con respeto,
+            sin gritar ni insultar.
+        </p>
+    </div>
+
+    <div class="paso">
+        <strong>5. Busco alternativas.</strong>
+        <p>
+            Propongo soluciones justas
+            que no perjudiquen a nadie.
+        </p>
+    </div>
+
+    <div class="paso">
+        <strong>6. Llego a un acuerdo.</strong>
+        <p>
+            Elijo junto con la otra persona
+            una solución adecuada.
+        </p>
+    </div>
+
+    <div class="paso">
+        <strong>7. Construyo paz.</strong>
+        <p>
+            Cumplo los acuerdos y reflexiono
+            sobre lo que aprendí.
+        </p>
+    </div>
+
+    <!-- PLANO CARTESIANO -->
+
+    <h3>Plano cartesiano de mi Ruta de Paz</h3>
+
+    <div class="plano-contenedor">
+
+        <svg
+            viewBox="0 0 760 570"
+            role="img"
+            aria-label="Plano cartesiano con siete puntos de la Ruta de Paz">
+
+            <rect
+                width="760"
+                height="570"
+                fill="white">
+            </rect>
+
+            <defs>
+                <pattern
+                    id="cuadricula"
+                    width="51"
+                    height="51"
+                    patternUnits="userSpaceOnUse"
+                    x="90"
+                    y="67">
+
+                    <path
+                        d="M 51 0 L 0 0 0 51"
+                        fill="none"
+                        stroke="#e9e2f2"
+                        stroke-width="1">
+                    </path>
+
+                </pattern>
+            </defs>
+
+            <rect
+                x="90"
+                y="67"
+                width="408"
+                height="408"
+                fill="url(#cuadricula)">
+            </rect>
+
+            <!-- EJES -->
+
+            <line
+                x1="90"
+                y1="475"
+                x2="675"
+                y2="475"
+                stroke="#70544b"
+                stroke-width="3">
+            </line>
+
+            <line
+                x1="90"
+                y1="475"
+                x2="90"
+                y2="35"
+                stroke="#70544b"
+                stroke-width="3">
+            </line>
+
+            <path
+                d="M675 475 l-12 -7 v14 z"
+                fill="#70544b">
+            </path>
+
+            <path
+                d="M90 35 l-7 12 h14 z"
+                fill="#70544b">
+            </path>
+
+            <text
+                x="686"
+                y="480"
+                font-size="19"
+                fill="#70544b">X</text>
+
+            <text
+                x="82"
+                y="25"
+                font-size="19"
+                fill="#70544b">Y</text>
+
+            <text
+                x="73"
+                y="495"
+                font-size="14">0</text>
+
+            <!-- NÚMEROS DEL EJE X -->
+
+            <g
+                font-size="15"
+                fill="#555"
+                text-anchor="middle">
+
+                <text x="141" y="498">1</text>
+                <text x="192" y="498">2</text>
+                <text x="243" y="498">3</text>
+                <text x="294" y="498">4</text>
+                <text x="345" y="498">5</text>
+                <text x="396" y="498">6</text>
+                <text x="447" y="498">7</text>
+                <text x="498" y="498">8</text>
+            </g>
+
+            <!-- NÚMEROS DEL EJE Y -->
+
+            <g
+                font-size="15"
+                fill="#555"
+                text-anchor="end">
+
+                <text x="78" y="429">1</text>
+                <text x="78" y="378">2</text>
+                <text x="78" y="327">3</text>
+                <text x="78" y="276">4</text>
+                <text x="78" y="225">5</text>
+                <text x="78" y="174">6</text>
+                <text x="78" y="123">7</text>
+                <text x="78" y="72">8</text>
+            </g>
+
+            <!-- LÍNEA DE PROGRESO -->
+
+            <polyline
+                points="
+                141,424
+                192,373
+                243,322
+                294,271
+                345,220
+                396,169
+                447,118"
+                fill="none"
+                stroke="#9a80c7"
+                stroke-width="5"
+                stroke-linecap="round">
+            </polyline>
+
+            <!-- PUNTOS -->
+
+            <g
+                fill="#75c7a4"
+                stroke="#477d69"
+                stroke-width="2">
+
+                <circle cx="141" cy="424" r="10"/>
+                <circle cx="192" cy="373" r="10"/>
+                <circle cx="243" cy="322" r="10"/>
+                <circle cx="294" cy="271" r="10"/>
+                <circle cx="345" cy="220" r="10"/>
+                <circle cx="396" cy="169" r="10"/>
+                <circle cx="447" cy="118" r="10"/>
+            </g>
+
+            <!-- COORDENADAS -->
+
+            <g font-size="13" fill="#594878">
+                <text x="154" y="413">(1,1)</text>
+                <text x="205" y="362">(2,2)</text>
+                <text x="256" y="311">(3,3)</text>
+                <text x="307" y="260">(4,4)</text>
+                <text x="358" y="209">(5,5)</text>
+                <text x="409" y="158">(6,6)</text>
+                <text x="460" y="107">(7,7)</text>
+            </g>
+
+        </svg>
+
+        <p class="plano-nota">
+            Eje X: avance por las siete acciones.
+            Eje Y: progreso simbólico hacia la
+            convivencia pacífica.
+            La escala es ilustrativa.
+        </p>
+
+        <ol>
+            <li>(1,1): Me detengo.</li>
+            <li>(2,2): Identifico emociones.</li>
+            <li>(3,3): Escucho.</li>
+            <li>(4,4): Dialogo.</li>
+            <li>(5,5): Busco alternativas.</li>
+            <li>(6,6): Llego a un acuerdo.</li>
+            <li>(7,7): Construyo paz.</li>
+        </ol>
+
+    </div>
+
+    <!-- ALGORITMO -->
+
+    <h3>Algoritmo de paz</h3>
+
+    <div class="datos">
+
+        <p>
+            <strong>
+                MIENTRAS exista un conflicto:
+            </strong>
+        </p>
+
+        <ol>
+            <li>Me detengo.</li>
+            <li>Identifico mis emociones.</li>
+            <li>Escucho a la otra persona.</li>
+            <li>Dialogo con respeto.</li>
+            <li>Busco soluciones.</li>
+            <li>Propongo acuerdos.</li>
+            <li>Evalúo el resultado.</li>
+        </ol>
+
+        <p>
+            SI el acuerdo funciona,
+            ENTONCES lo cumplo y mantengo el respeto.
+        </p>
+
+        <p>
+            SI NO funciona, busco nuevas alternativas
+            y apoyo de orientación.
+        </p>
+
+        <p><strong>FIN MIENTRAS.</strong></p>
+
+    </div>
+
+    <!-- SITUACIONES ESCOLARES -->
+
+    <h3>Situaciones de la vida escolar</h3>
+
+    <div class="problema">
+        <strong>
+            Caso 1: Burlas entre compañeros.
+        </strong>
+
+        <p>
+            Un estudiante recibe comentarios ofensivos
+            por su forma de hablar.
+        </p>
+    </div>
+
+    <div class="solucion">
+        <strong>Ruta de solución:</strong>
+
+        <p>
+            Evitar participar en las burlas,
+            apoyar al compañero afectado
+            y comunicar la situación a un docente
+            u orientación escolar.
+            No se debe obligar a la víctima
+            a enfrentar sola a quien la agrede.
+        </p>
+    </div>
+
+    <div class="imagen-espacio">
+        <strong>Respeto entre compañeros</strong>
+
+        <img
+            src="INCLUSION.JPG"
+            alt="Respeto e inclusión">
+    </div>
+
+    <div class="problema">
+        <strong>
+            Caso 2: Desacuerdo con un profesor.
+        </strong>
+
+        <p>
+            Un alumno considera que su calificación
+            no corresponde al trabajo que entregó.
+        </p>
+    </div>
+
+    <div class="solucion">
+        <strong>Ruta de solución:</strong>
+
+        <p>
+            Solicitar una explicación con respeto,
+            revisar los criterios de evaluación,
+            presentar las evidencias del trabajo
+            y buscar un acuerdo justo.
+        </p>
+    </div>
+
+    <div class="imagen-espacio menta">
+        <img
+            src="alumnoprofe.png"
+            alt="Comunicación entre alumno y profesor">
+    </div>
+
+    <div class="problema">
+        <strong>
+            Caso 3: Conflicto en equipo.
+        </strong>
+
+        <p>
+            Dos estudiantes discuten porque uno considera
+            que el otro no participa en las actividades.
+        </p>
+    </div>
+
+    <div class="solucion">
+        <strong>Ruta de solución:</strong>
+
+        <p>
+            Escuchar a ambos,
+            distribuir responsabilidades,
+            establecer fechas de entrega
+            y revisar el cumplimiento
+            de los acuerdos.
+        </p>
+    </div>
+
+    <div class="imagen-espacio lavanda">
+        <img
+            src="airelonre.jpg"
+            alt="Estudiantes trabajando en equipo">
+    </div>
+
+    <!-- ACTIVIDAD INTERACTIVA -->
+
+    <h3>
+        Actividad interactiva: Toma una decisión
+    </h3>
+
+    <div class="actividad">
+
+        <p>
+            Un compañero se burla de otro estudiante
+            durante una exposición.
+            ¿Qué harías?
+        </p>
+
+        <select id="decision">
+            <option value="">
+                Selecciona una respuesta
+            </option>
+
+            <option value="a">
+                Reírme para seguir la broma
+            </option>
+
+            <option value="b">
+                Pedir respeto y apoyar al compañero
+            </option>
+
+            <option value="c">
+                Responder con insultos
+            </option>
+
+            <option value="d">
+                Grabar y compartir el momento
+            </option>
+        </select>
+
+        <button onclick="evaluarDecision()">
+            Comprobar respuesta
+        </button>
+
+        <div
+            id="resultado"
+            class="resultado"
+            aria-live="polite">
+        </div>
+
+    </div>
+
+    <!-- BOTÓN DIRECTO A CIERRE -->
+
+    <a href="cierre.html" class="boton-enlace">
+        Continuar al cierre
+    </a>
+
+</section>
+
+</main>
+
+<!-- PIE DE PÁGINA -->
+
+<footer>
+    <p><strong>CÓDIGO HUMANO</strong></p>
+
+    <p>
+        Programando Rutas de Paz
+        para mi Bienestar Integral
+    </p>
+
+    <p>CECyTE 24</p>
+
+    <p>La paz también se programa.</p>
+</footer>
+
+<!-- JAVASCRIPT -->
+
+<script>
+
+/* MODO OSCURO */
+
+function cambiarTema() {
+    const oscuro =
+        document.body.classList.toggle("modo-oscuro");
+
+    localStorage.setItem(
+        "temaCodigoHumano",
+        oscuro ? "oscuro" : "claro"
+    );
+
+    actualizarBotonTema();
+}
+
+function actualizarBotonTema() {
+    const boton = document.getElementById("botonTema");
+
+    if (!boton) return;
+
+    const oscuro =
+        document.body.classList.contains("modo-oscuro");
+
+    boton.textContent = oscuro
+        ? "☀️ Activar modo claro"
+        : "🌙 Activar modo oscuro";
+}
+
+function cargarTemaGuardado() {
+    const tema =
+        localStorage.getItem("temaCodigoHumano");
+
+    document.body.classList.toggle(
+        "modo-oscuro",
+        tema === "oscuro"
+    );
+
+    actualizarBotonTema();
+}
+
+/* ACTIVIDAD INTERACTIVA */
+
+function evaluarDecision() {
+    const decision =
+        document.getElementById("decision").value;
+
+    const resultado =
+        document.getElementById("resultado");
+
+    resultado.style.display = "block";
+
+    if (decision === "b") {
+        resultado.textContent =
+            "¡Muy bien! Apoyar a un compañero " +
+            "y pedir respeto ayuda a construir " +
+            "una convivencia pacífica.";
+    } else if (decision === "") {
+        resultado.textContent =
+            "Selecciona una respuesta para continuar.";
+    } else {
+        resultado.textContent =
+            "Esta decisión no ayuda a resolver " +
+            "el problema. Es mejor evitar las " +
+            "agresiones, apoyar a la persona " +
+            "afectada y buscar ayuda si es necesario.";
+    }
+}
+
+/* CARGAR PREFERENCIA */
+
+cargarTemaGuardado();
+
+</script>
+
+</body>
+</html>
